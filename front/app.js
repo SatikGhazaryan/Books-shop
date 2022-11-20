@@ -4,6 +4,7 @@ fetch("./books.json")
     return response.json();
   })
   .then((data) => {
+    let header=document.createElement('header')
     let title = document.createElement("h1");
     title.append("Books shop");
     let rowIcon = document.createElement("div");
@@ -16,8 +17,10 @@ fetch("./books.json")
         shop.append(i);
         rowIcon.append(shop);
       }
-    document.querySelector("header").append(title);
-    document.querySelector("header").append(rowIcon);
+      header.append(title)
+      header.append(rowIcon)
+    document.querySelector("div").append(header);
+    let main=document.createElement('main')
     data.forEach((element) => {
       let div = document.createElement("div");
       div.className = "col";
@@ -47,6 +50,7 @@ fetch("./books.json")
         row.append(shop);
       }
       div.append(row);
-      document.querySelector("main").append(div);
+      main.append(div)
+      document.querySelector("div").append(main);
     });
   });
